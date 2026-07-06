@@ -1,4 +1,3 @@
-/* Setting up our main colors and layout sizes so we can reuse them easily */
 :root {
     --primary-color: #1b4d3e;
     /* Our main dark green brand color */
@@ -22,7 +21,6 @@
     /* Consistent rounded corners everywhere */
 }
 
-/* Resetting default browser margins and paddings so everything looks consistent */
 * {
     margin: 0;
     padding: 0;
@@ -58,7 +56,6 @@ a {
     color: inherit;
 }
 
-/* The main layout that uses Flexbox to put the sidebar and content side-by-side */
 .app-container {
     display: flex;
     min-height: 100%;
@@ -128,13 +125,11 @@ nav a.active {
     justify-content: center;
 }
 
-/* Pushing the main content to the right so it doesn't hide under the sidebar */
 main {
     flex: 1;
     margin-left: var(--sidebar-width);
 }
 
-/* Center-aligning our page content with some breathing room */
 .page-content {
     max-width: 1400px;
     margin: 0 auto;
@@ -166,7 +161,6 @@ main {
     margin-bottom: 32px;
 }
 
-/* Making the italic part of the headline a different color */
 .hero-text h2 em {
     color: var(--accent-color);
     font-style: italic;
@@ -343,7 +337,6 @@ main {
     align-items: center;
 }
 
-/* Semi-transparent overlay to dim the background when cart is open */
 .cart-overlay {
     position: fixed;
     top: 0;
@@ -400,7 +393,6 @@ main {
         margin-left: 0;
     }
 
-    /* Making the cart take up the full width on small screens */
     .cart-drawer {
         width: 100%;
         right: -100%;
