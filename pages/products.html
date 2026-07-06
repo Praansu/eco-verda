@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-    <!-- Basic page configuration for characters and screen width -->
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Meta description for internet search previews -->
+    
     <meta name="description" content="Shop sustainable products at EcoVerda.">
     <title>Products | EcoVerda</title>
-    <!-- Main CSS styling for the look of the site -->
+    
     <link rel="stylesheet" href="../css/style.css">
 
     <style>
@@ -43,14 +43,13 @@
 </head>
 
 <body>
-    <!-- Main grid container -->
+    
     <div class="app-container">
 
-        <!-- Navigation sidebar -->
         <header>
             <div class="logo">
                 <h1>
-                    <!-- Little brand icon -->
+                    
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.48 10-10 10Z">
                         </path>
@@ -59,7 +58,7 @@
                     EcoVerda
                 </h1>
             </div>
-            <!-- Our menu navigation -->
+            
             <nav>
                 <ul>
                     <li><a href="../index.html">Home</a></li>
@@ -67,7 +66,7 @@
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="research.html">Research</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <!-- Button to open the cart panel -->
+                    
                     <li>
                         <a href="#" class="cart-trigger" onclick="toggleCart()">
                             <span id="cart-count">0</span> 🛒 Cart
@@ -78,37 +77,34 @@
             <div style="margin-top:auto; font-size: 13px; color:#ccc;">&copy; 2026 EcoVerda</div>
         </header>
 
-        <!-- Our main product showcase area -->
         <main>
             <div class="page-content">
                 <h2 class="section-title">Our Sustainable Shop</h2>
 
-                <!-- Category 1: General eco gems -->
                 <h3 class="category-title">Our Products</h3>
                 <div class="product-flex">
-                    <!-- Product card structure with name, image, and price -->
+                    
                     <div class="product-card">
                         <div class="product-image-wrapper">
                             <img src="../images/Fiber.png" alt="Bamboo Fiber Straw">
-                            <!-- Pop-up overlay when you hover the image -->
+                            
                             <div class="product-description">
                                 <p>Straws made with bamboo fiber reusable and light-weight a product of EcoVerda. 20 in
                                     one box.</p>
                             </div>
-                            <!-- Clicking this triggers the addToCart script -->
+                            
                             <button class="add-btn"
                                 onclick="addToCart('Bamboo Fiber Straw', 780.00, '../images/Fiber.png', 'p1')">+</button>
                         </div>
                         <h3>Bamboo Fiber Straw</h3>
                         <p class="price-text">Rs. 780.00</p>
-                        <!-- Box to pick how many you want -->
+                        
                         <div style="margin-top:15px;">
                             <label class="qty-label">Qty:</label>
                             <input type="number" id="p1" value="1" min="1" class="qty-input">
                         </div>
                     </div>
 
-                    <!-- Repeat card for other products -->
                     <div class="product-card">
                         <div class="product-image-wrapper">
                             <img src="../images/comb.png" alt="Organic Comb">
@@ -145,7 +141,6 @@
                     </div>
                 </div>
 
-                <!-- Category 2: Everything Bamboo -->
                 <h3 class="category-title">Bamboo Products</h3>
                 <div class="product-flex">
                     <div class="product-card">
@@ -201,7 +196,6 @@
                     </div>
                 </div>
 
-                <!-- Category 3: Everything Cotton -->
                 <h3 class="category-title">Cotton Products</h3>
                 <div class="product-flex">
                     <div class="product-card">
@@ -258,7 +252,6 @@
                     </div>
                 </div>
 
-                <!-- Category 4: Everything Hay based -->
                 <h3 class="category-title">Hay Products</h3>
                 <div class="product-flex">
                     <div class="product-card">
@@ -315,7 +308,6 @@
                     </div>
                 </div>
 
-                <!-- Category 5: Everything Metal -->
                 <h3 class="category-title">Metal Products</h3>
                 <div class="product-flex">
                     <div class="product-card">
@@ -339,19 +331,17 @@
         </main>
     </div>
 
-    <!-- The panel that shows up when looking at the cart -->
     <div class="cart-overlay" onclick="toggleCart()"></div>
     <div class="cart-drawer" id="cartDrawer">
         <div class="cart-header">
             <h3>Your Cart</h3>
             <button onclick="toggleCart()" class="cart-close-btn">&times;</button>
         </div>
-        <!-- This gets dynamically filled by JavaScript -->
+        
         <div id="cartItemsContainer">
             <p style="text-align:center; color:#999;">Your cart is empty.</p>
         </div>
 
-        <!-- Section for the total cost and checkout action -->
         <div style="border-top:1px solid #eee; margin-top:30px; padding-top:20px;">
             <div
                 style="display:flex; justify-content:space-between; font-weight:bold; font-size:18px; margin-bottom:20px;">
@@ -362,7 +352,6 @@
         </div>
     </div>
 
-    <!-- Our site footer -->
     <footer class="footer">
         <div class="footer-links">
             <a href="../index.html">Home</a>
@@ -374,7 +363,6 @@
             better tomorrow.</p>
     </footer>
 
-    <!-- Loading the common script for cart logic -->
     <script src="../js/script.js"></script>
 </body>
 
