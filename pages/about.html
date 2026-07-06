@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-    <!-- Basic site settings for text and screen scaling -->
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Meta tag for SEO friendliness -->
+    
     <meta name="description" content="Meet the EcoVerda team and get in touch with us.">
     <title>About Us | EcoVerda</title>
-    <!-- Importing our main design styles -->
+    
     <link rel="stylesheet" href="../css/style.css">
 
     <style>
@@ -39,14 +39,13 @@
 </head>
 
 <body>
-    <!-- Main page wrapper -->
+    
     <div class="app-container">
 
-        <!-- Our sidebar navigation menu -->
         <header>
             <div class="logo">
                 <h1>
-                    <!-- Icon for our brand -->
+                    
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.48 10-10 10Z">
                         </path>
@@ -55,7 +54,7 @@
                     EcoVerda
                 </h1>
             </div>
-            <!-- Navigation links -->
+            
             <nav>
                 <ul>
                     <li><a href="../index.html">Home</a></li>
@@ -63,7 +62,7 @@
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="research.html">Research</a></li>
                     <li><a href="about.html" class="active">About Us</a></li>
-                    <!-- Link to open the shopping cart -->
+                    
                     <li>
                         <a href="javascript:void(0)" class="cart-trigger" onclick="toggleCart()">
                             <span id="cart-count">0</span> 🛒 Cart
@@ -71,20 +70,17 @@
                     </li>
                 </ul>
             </nav>
-            <!-- Small copyright note at the bottom -->
+            
             <div style="margin-top:auto; font-size: 13px; color:#ccc;">&copy; 2026 EcoVerda</div>
         </header>
 
-        <!-- Main content section -->
         <main>
             <div class="page-content">
 
-                <!-- Section showing off our team members -->
                 <section style="margin-bottom: 100px;">
                     <h2 class="section-title">Meet Our Team</h2>
                     <div class="product-flex">
 
-                        <!-- Information for Member 1 -->
                         <div class="product-card" style="max-width:350px;">
                             <img src="https://ui-avatars.com/api/?name=Praansu+Karmacharya&size=200&background=D3D3D3&color=fff&font-size=0.35&bold=true"
                                 alt="Praansu Karmacharya"
@@ -97,12 +93,11 @@
                             <p style="font-size:14px; color:#666; margin-bottom:20px;">
                                 Dedicated to building scalable sustainable technology and elegant web architectures.
                             </p>
-                            <!-- Link to their individual portfolio -->
+                            
                             <a href="../portfolio/praansu-portfolio.html" class="btn"
                                 style="padding: 10px 25px; font-size:14px;">View Portfolio</a>
                         </div>
 
-                        <!-- Information for Member 2 -->
                         <div class="product-card" style="max-width:350px;">
                             <img src="https://ui-avatars.com/api/?name=Mahit+Shrestha&size=200&background=2d7a62&color=fff&font-size=0.35&bold=true"
                                 alt="Mahit Shrestha"
@@ -120,7 +115,6 @@
                                 Portfolio</a>
                         </div>
 
-                        <!-- Information for Member 3 -->
                         <div class="product-card" style="max-width:350px;">
                             <img src="https://ui-avatars.com/api/?name=Garima+Dongol&size=200&background=d4a373&color=fff&font-size=0.35&bold=true"
                                 alt="Garima Dongol"
@@ -141,11 +135,10 @@
                     </div>
                 </section>
 
-                <!-- Our contact form section -->
                 <section
                     style="max-width: 700px; margin: 0 auto; background: white; padding: 60px; border-radius: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
                     <h2 class="section-title" style="margin-bottom:40px;">Contact Us</h2>
-                    <!-- When the user sends the form, we call our JavaScript validation -->
+                    
                     <form id="contactForm" onsubmit="return validateForm()">
                         <div style="margin-bottom:20px;">
                             <input type="text" id="name" placeholder="Full Name" required
@@ -167,7 +160,6 @@
         </main>
     </div>
 
-    <!-- The cart UI that stays hidden until clicked -->
     <div class="cart-overlay" onclick="toggleCart()"></div>
     <div class="cart-drawer" id="cartDrawer">
         <div class="cart-header">
@@ -176,19 +168,17 @@
         </div>
         <div id="cartItemsContainer" style="margin-top:32px;"></div>
 
-        <!-- Section for the total price and checkout -->
         <div style="border-top:1px solid #eee; margin-top:32px; padding-top:24px;">
             <div
                 style="display:flex; justify-content:space-between; font-weight:bold; font-size:18px; margin-bottom:24px;">
                 <span>Total:</span>
                 <span id="cartTotal">Rs. 0.00</span>
             </div>
-            <!-- Clicking checkout triggers a simple alert for now -->
+            
             <button class="btn" style="width:100%; border:none; cursor:pointer;" onclick="checkout()">Checkout</button>
         </div>
     </div>
 
-    <!-- Page footer with duplicate links -->
     <footer class="footer">
         <div class="footer-links">
             <a href="../index.html">Home</a>
@@ -200,7 +190,6 @@
             better tomorrow.</p>
     </footer>
 
-    <!-- Internal Script just for checking our contact form -->
     <script>
         function validateForm() {
             // Getting the name and email from our form inputs
@@ -218,7 +207,7 @@
             return true;
         }
     </script>
-    <!-- Linking our main shared JavaScript file -->
+    
     <script src="../js/script.js"></script>
 </body>
 
