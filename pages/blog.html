@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Basic settings like characters and responsive screen sizing -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | EcoVerda</title>
+    <!-- Loading our main styling file for the site design -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <!-- Container that wraps everything into our layout -->
+    <div class="app-container">
+
+        <!-- This is our side menu for navigating the site -->
+        <header>
+            <div class="logo">
+                <h1>
+                    <!-- Icon for our brand symbol -->
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.48 10-10 10Z">
+                        </path>
+                        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+                    </svg>
+                    EcoVerda
+                </h1>
+            </div>
+            <!-- Links to different pages -->
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <!-- Special menu item to toggle the cart open/close -->
+                    <li>
+                        <a href="#" class="cart-trigger" onclick="toggleCart()">
+                            <span id="cart-count">0</span> 🛒 Cart
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Date/copyright note at the bottom -->
+            <div style="margin-top:auto; font-size: 13px; color:#ccc;">&copy; 2026 EcoVerda</div>
+        </header>
+
+        <!-- Our main blog content goes here -->
+        <main>
+            <div class="page-content">
+                <h2 class="section-title">EcoVerda Blog</h2>
+
+                <!-- A single blog post article -->
+                <article
+                    style="max-width: 1000px; margin: 0 auto; background: white; padding: 60px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+
+                    <!-- Post title and author info -->
+                    <div style="text-align:center; margin-bottom:50px;">
+                        <h3 style="font-size:45px; margin-bottom:15px; color:var(--primary-color); line-height:1.2;">
+                            Technology & Sustainability
+                        </h3>
+                        <p
+                            style="font-style:italic; color:#888; letter-spacing:1px; text-transform:uppercase; font-size:14px;">
+                            By EcoVerda Editorial Team • Jan 2026
+                        </p>
+                    </div>
+
+                    <!-- Main featured image for the blog post -->
+                    <img src="../images/tech-eco.png" alt="Eco Tech Concept"
+                        style="width:100%; height: 500px; object-fit: cover; border-radius:20px; margin-bottom:50px;">
+
+                    <!-- The body text of our blog -->
+                    <h4 style="margin: 40px 0 20px; font-size:28px; color: var(--primary-color);">About Technology</h4>
+                    <p style="margin-bottom:20px; color: #444;">
+                        Technology is the use of tools, information and knowledge to make human life easier. Over the
+                        last few decades, technology has developed rapidly. Technology and nature are very closely
+                        related.
+                        It has helped humans grow into this advanced world. At the same time, technology has also been
+                        ruining
+                        our environment but if used responsibly, it is quite useful for both us and nature.
+                    </p>
+
+                    <!-- Explaining the good side of tech -->
+                    <h4 style="margin: 40px 0 20px; font-size:28px; color: var(--primary-color);">Positive Impact of
+                        Technology</h4>
+                    <p style="margin-bottom:20px; color: #444;">Technology can be quite beneficial:</p>
+                    <ul style="padding-left:30px; margin: 15px 0; line-height: 2; color: #555;">
+                        <li>Increases Efficiency</li>
+                        <li>Optimum utilization of Resources.</li>
+                        <li>Connects people all over the world.</li>
+                        <li>Renewable energy technologies that replaces Non-Renewable Fuels</li>
+                        <li>AI and IOT in agriculture.</li>
+                    </ul>
+
+                    <!-- Describing the bad side of tech -->
+                    <h4 style="margin: 40px 0 20px; font-size:28px; color: var(--primary-color);">Negative Impact of
+                        Technology</h4>
+                    <p style="margin-bottom:20px; color: #444;">Despite the benefits, technology involves risks:</p>
+                    <ul style="padding-left:30px; margin: 15px 0; line-height: 2; color: #555;">
+                        <li>Massive E-Waste.</li>
+                        <li>Pollution.</li>
+                        <li>High tech uses rare earth minerals.</li>
+                        <li>High energy consumption.</li>
+                    </ul>
+
+                    <!-- How tech helps our specific business -->
+                    <h4 style="margin: 40px 0 20px; font-size:28px; color: var(--primary-color);">How Technology Boosts
+                        Sustainable Product Sales</h4>
+                    <p style="margin-bottom:20px; color: #444;">
+                        The existence of this website is only possible due to modern technology. It has made EcoVerda
+                        easier to connect with people around the world.
+                    </p>
+                    <ul style="padding-left:30px; margin: 15px 0; line-height: 2; color: #555;">
+                        <li>E-commerce platforms.</li>
+                        <li>Digital Marketing.</li>
+                        <li>Budget friendly online operations.</li>
+                        <li>Quick customer feedback.</li>
+                        <li>Use of DBMS, IOT, Big data and AI making business easier.</li>
+                    </ul>
+
+                    <!-- Extra box with helpful tips -->
+                    <div style="background:var(--bg-color); padding:30px; border-radius:15px; margin-top:40px;">
+                        <h5 style="color:var(--primary-color); font-size:22px; margin-bottom:15px;">Why Choose
+                            Sustainable Products?</h5>
+                        <p style="margin-bottom:20px; color:#555;">
+                            Sustainable Products are made from items that are safe for everyone. Choosing a sustainable
+                            household leads to a sustainable life.
+                        </p>
+                        <h5 style="color:var(--primary-color); font-size:22px; margin-bottom:15px; margin-top:30px;">
+                            Sustainable Living Tips
+                        </h5>
+                        <ul style="padding-left:20px; color:#555; line-height:1.8;">
+                            <li>Start using Reusable Products.</li>
+                            <li>Follow the three R's (Reduce, Reuse and Recycle).</li>
+                            <li>Learn to Fix not Replace.</li>
+                            <li>Stop consuming more than necessary.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Final wrap-up text for the post -->
+                    <div style="margin-top: 60px; padding-top: 30px; border-top: 2px solid #eee; text-align: center;">
+                        <h4 style="color: var(--primary-color); font-size: 32px; margin-bottom: 20px;">Conclusion</h4>
+                        <p style="font-size: 18px; color: #444;">
+                            Let's all take sustainable living as a responsibility rather than a choice. Our small
+                            actions can create a huge impact.
+                            EcoVerda can be your first step towards sustainable living.
+                        </p>
+                    </div>
+
+                </article>
+            </div>
+        </main>
+    </div>
+
+    <!-- The sliding shopping cart part -->
+    <div class="cart-overlay" onclick="toggleCart()"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button onclick="toggleCart()" class="cart-close-btn">&times;</button>
+        </div>
+        <!-- This container gets filled with cart items using JavaScript -->
+        <div id="cartItemsContainer" style="margin-top:48px;"></div>
+
+        <!-- Section for price total and checkout -->
+        <div style="border-top:1px solid #eee; margin-top:32px; padding-top:24px;">
+            <div
+                style="display:flex; justify-content:space-between; font-weight:bold; font-size:18px; margin-bottom:24px;">
+                <span>Total:</span>
+                <span id="cartTotal">Rs. 0.00</span>
+            </div>
+            <button class="btn" style="width:100%; border:none; cursor:pointer;" onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Final site footer links -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="../index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">About Us</a>
+        </div>
+        <p style="margin-top: 20px; color: #888; font-size: 16px;">&copy; 2026 EcoVerda | Sustainable lifestyle for a
+            better tomorrow.</p>
+    </footer>
+
+    <!-- Importing our common site logic -->
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

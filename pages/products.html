@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Basic page configuration for characters and screen width -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta description for internet search previews -->
+    <meta name="description" content="Shop sustainable products at EcoVerda.">
+    <title>Products | EcoVerda</title>
+    <!-- Main CSS styling for the look of the site -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        /* Extra styles just for our product list page */
+        .category-title {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin: 40px 0 30px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        /* Color the price tag with our accent gold/tan */
+        .price-text {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* Styling for the small quantity numbers */
+        .qty-label {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .qty-input {
+            width: 50px;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Main grid container -->
+    <div class="app-container">
+
+        <!-- Navigation sidebar -->
+        <header>
+            <div class="logo">
+                <h1>
+                    <!-- Little brand icon -->
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.48 10-10 10Z">
+                        </path>
+                        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+                    </svg>
+                    EcoVerda
+                </h1>
+            </div>
+            <!-- Our menu navigation -->
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <!-- Button to open the cart panel -->
+                    <li>
+                        <a href="#" class="cart-trigger" onclick="toggleCart()">
+                            <span id="cart-count">0</span> 🛒 Cart
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div style="margin-top:auto; font-size: 13px; color:#ccc;">&copy; 2026 EcoVerda</div>
+        </header>
+
+        <!-- Our main product showcase area -->
+        <main>
+            <div class="page-content">
+                <h2 class="section-title">Our Sustainable Shop</h2>
+
+                <!-- Category 1: General eco gems -->
+                <h3 class="category-title">Our Products</h3>
+                <div class="product-flex">
+                    <!-- Product card structure with name, image, and price -->
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="../images/Fiber.png" alt="Bamboo Fiber Straw">
+                            <!-- Pop-up overlay when you hover the image -->
+                            <div class="product-description">
+                                <p>Straws made with bamboo fiber reusable and light-weight a product of EcoVerda. 20 in
+                                    one box.</p>
+                            </div>
+                            <!-- Clicking this triggers the addToCart script -->
+                            <button class="add-btn"
+                                onclick="addToCart('Bamboo Fiber Straw', 780.00, '../images/Fiber.png', 'p1')">+</button>
+                        </div>
+                        <h3>Bamboo Fiber Straw</h3>
+                        <p class="price-text">Rs. 780.00</p>
+                        <!-- Box to pick how many you want -->
+                        <div style="margin-top:15px;">
+                            <label class="qty-label">Qty:</label>
+                            <input type="number" id="p1" value="1" min="1" class="qty-input">
+                        </div>
+                    </div>
+
+                    <!-- Repeat card for other products -->
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="../images/comb.png" alt="Organic Comb">
+                            <div class="product-description">
+                                <p>Organic comb made with animal horns. No animals were harmed as all horns were
+                                    collected from naturally deceased animals - limited edition.</p>
+                            </div>
+                            <button class="add-btn"
+                                onclick="addToCart('Organic Comb', 1049.00, '../images/comb.png', 'p2')">+</button>
+                        </div>
+                        <h3>Organic Comb</h3>
+                        <p class="price-text">Rs. 1049.00</p>
+                        <div style="margin-top:15px;">
+                            <label class="qty-label">Qty:</label>
+                            <input type="number" id="p2" value="1" min="1" class="qty-input">
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="../images/MUG.png" alt="Ceramic Mug">
+                            <div class="product-description">
+                                <p>EcoVerda ceramic mug made from clay and minerals - 100% natural and non-toxic.</p>
+                            </div>
+                            <button class="add-btn"
+                                onclick="addToCart('Ecoverda Ceramic MUG', 280.00, '../images/MUG.png', 'p3')">+</button>
+                        </div>
+                        <h3>Ecoverda Ceramic Mug</h3>
+                        <p class="price-text">Rs. 280.00</p>
+                        <div style="margin-top:15px;">
+                            <label class="qty-label">Qty:</label>
+                            <input type="number" id="p3" value="1" min="1" class="qty-input">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 2: Everything Bamboo -->
+                <h3 class="category-title">Bamboo Products</h3>
+                <div class="product-flex">
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="../images/Straw.jpg" alt="Bamboo Straw">
+                            <div class="product-description">
+                                <p>Light bamboo straw handmade with real bamboo. Reusable and durable. Available in pack
+                                    of 6.</p>
+                            </div>
+                            <button class="add-btn"
+                                onclick="addToCart('Bamboo Straw', 285.00, '../images/Straw.jpg', 'p4')">+</button>
+                        </div>
+                        <h3>Bamboo Straw</h3>
+                        <p class="price-text">Rs. 285.00</p>
+                        <div style="margin-top:15px;">
+                            <label class="qty-label">Qty:</label>
+                            <input type="number" id="p4" value="1" min="1" class="qty-input">
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="../images/toothbrush.jpg" alt="Bamboo Toothbrush Set">
+                            <div class="product-description">
+                                <p>Eco-friendly toothbrush made with bamboo. Comes in a set of 2.</p>
+                            </div>
+                            <button class="add-btn"
+                                onclick="addToCart('Bamboo Toothbrush Set', 220.00, '../images/toothbrush.jpg', 'p5')">+</button>
+                        </div>
+                        <h3>Bamboo Toothbrush Set</h3>
+                        <p class="price-text">Rs. 220.00</p>
+                        <div style="margin-top:15px;">
+                            <label class="qty-label">Qty:</label>
+                            <input type="number" id="p5" value="1" min="1" class="qty-input">
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="../images/Steamer.jpg" alt="Bamboo Steamer">
+                            <div class="product-description">
+                                <p>Bamboo steamer to cook and re-heat your foods. Handmade with 100% bamboo.</p>
+                            </div>
+                            <button class="add-btn"
+                                onclick="addToCart('Bamboo Steamer', 7700.00, '../images/Steamer.jpg', 'p6')">+</button>
+                        </div>
+                        <h3>Bamboo Steamer</h3>
+                        <p class="price-text">Rs. 7700.00</p>
+                        <div style="margin-top:15px;">
+                            <label class="qty-label">Qty:</label>
+                            <input type="number" id="p6" value="1" min="1" class="qty-input">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 3: Everything Cotton -->
+                <h3 class="category-title">Cotton Products</h3>
+                <div class="product-flex">
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="../images/cottonbag.jpg" alt="Cotton Tote Bag">
+                            <div class="product-description">
+                                <p>Lightweight light brown cotton tote bag made with 100% cotton.</p>
+                            </div>
+                            <button class="add-btn"
+                                onclick="addToCart('Organic Cotton Tote Bag', 500.00, '../images/cottonbag.jpg', 'p7')">+</button>
+                        </div>
+                        <h3>Organic Cotton Tote Bag</h3>
+                        <p class="price-text">Rs. 500.00</p>
+                        <div style="margin-top:15px;">
+                            <label class="qty-label">Qty:</label>
+                            <input type="number" id="p7" value="1" min="1" class="qty-input">
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="../images/Sack.jpg" alt="Cotton Sack">
+                            <div class="product-description">
+                                <p>Cotton sack bag to store your ingredients. Available in 3 sizes. Get 2 sack bags in
+                                    one order.</p>
+                            </div>
+                            <button class="add-btn"
+                                onclick="addToCart('Organic Cotton Sack', 820.00, '../images/Sack.jpg', 'p8')">+</button>
+                        </div>
+                        <h3>Organic Cotton Sack</h3>
+                        <p class="price-text">Rs. 820.00</p>
+                        <div style="margin-top:15px;">
+                            <label class="qty-label">Qty:</label>
+                            <input type="number" id="p8" value="1" min="1" class="qty-input">
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="../images/Apron.jpg" alt="Cotton Apron">
+                            <div class="product-description">
+                                <p>Cotton apron available in 5 different colors. Made with 100% cotton. Easily washable
+                                    and lightweight.</p>
+                            </div>
+                            <button class="add-btn"
+                                onclick="addToCart('Cotton Apron', 755.00, '../images/Apron.jpg', 'p9')">+</button>
+                        </div>
+                        <h3>Cotton Apron</h3>
+                        <p class="price-text">Rs. 755.00</p>
+                        <div style="margin-top:15px;">
+                            <label class="qty-label">Qty:</label>
+                            <input type="number" id="p9" value="1" min="1" class="qty-input">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 4: Everything Hay based -->
+                <h3 class="category-title">Hay Products</h3>
+                <div class="product-flex">
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="../images/basket.jpg" alt="Straw Basket">
+                            <div class="product-description">
+                                <p>Handwoven basket made with 100% natural straw. Contains 0% plastic or harmful
+                                    chemicals.</p>
+                            </div>
+                            <button class="add-btn"
+                                onclick="addToCart('Handwoven Straw Basket', 2400.00, '../images/basket.jpg', 'p10')">+</button>
+                        </div>
+                        <h3>Handwoven Straw Basket</h3>
+                        <p class="price-text">Rs. 2400.00</p>
+                        <div style="margin-top:15px;">
+                            <label class="qty-label">Qty:</label>
+                            <input type="number" id="p10" value="1" min="1" class="qty-input">
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="../images/hay-bag.jpg" alt="Straw Bag">
+                            <div class="product-description">
+                                <p>Affordable and convenient straw bag made with natural straw. Reliable for any outdoor
+                                    hang.</p>
+                            </div>
+                            <button class="add-btn"
+                                onclick="addToCart('Straw Bag', 1900.00, '../images/hay-bag.jpg', 'p11')">+</button>
+                        </div>
+                        <h3>Straw Bag</h3>
+                        <p class="price-text">Rs. 1900.00</p>
+                        <div style="margin-top:15px;">
+                            <label class="qty-label">Qty:</label>
+                            <input type="number" id="p11" value="1" min="1" class="qty-input">
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="../images/hat.jpg" alt="Straw Hat">
+                            <div class="product-description">
+                                <p>Summer hat made of straw. Perfect to be safe from sun and eco-friendly.</p>
+                            </div>
+                            <button class="add-btn"
+                                onclick="addToCart('Hat', 349.00, '../images/hat.jpg', 'p12')">+</button>
+                        </div>
+                        <h3>Hat</h3>
+                        <p class="price-text">Rs. 349.00</p>
+                        <div style="margin-top:15px;">
+                            <label class="qty-label">Qty:</label>
+                            <input type="number" id="p12" value="1" min="1" class="qty-input">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 5: Everything Metal -->
+                <h3 class="category-title">Metal Products</h3>
+                <div class="product-flex">
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="../images/SteelStraw.jpg" alt="Steel Straws">
+                            <div class="product-description">
+                                <p>Reusable metal straw that is durable and eco-friendly. 5 straws in one pack.</p>
+                            </div>
+                            <button class="add-btn"
+                                onclick="addToCart('Reusable Steel Straws', 780.00, '../images/SteelStraw.jpg', 'p13')">+</button>
+                        </div>
+                        <h3>Reusable Steel Straws</h3>
+                        <p class="price-text">Rs. 780.00</p>
+                        <div style="margin-top:15px;">
+                            <label class="qty-label">Qty:</label>
+                            <input type="number" id="p13" value="1" min="1" class="qty-input">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- The panel that shows up when looking at the cart -->
+    <div class="cart-overlay" onclick="toggleCart()"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button onclick="toggleCart()" class="cart-close-btn">&times;</button>
+        </div>
+        <!-- This gets dynamically filled by JavaScript -->
+        <div id="cartItemsContainer">
+            <p style="text-align:center; color:#999;">Your cart is empty.</p>
+        </div>
+
+        <!-- Section for the total cost and checkout action -->
+        <div style="border-top:1px solid #eee; margin-top:30px; padding-top:20px;">
+            <div
+                style="display:flex; justify-content:space-between; font-weight:bold; font-size:18px; margin-bottom:20px;">
+                <span>Total:</span>
+                <span id="cartTotal">Rs. 0.00</span>
+            </div>
+            <button class="btn" style="width:100%; border:none; cursor:pointer;" onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Our site footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="../index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">About Us</a>
+        </div>
+        <p style="margin-top: 20px; color: #888; font-size: 16px;">&copy; 2026 EcoVerda | Sustainable lifestyle for a
+            better tomorrow.</p>
+    </footer>
+
+    <!-- Loading the common script for cart logic -->
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

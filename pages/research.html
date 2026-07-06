@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Basic settings for the site setup -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research | EcoVerda</title>
+
+    <!-- Linking our main design styles -->
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Special styles for our research tables and comparisons */
+        .premium-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin: 30px 0;
+        }
+
+        /* Styling for the table headers */
+        .premium-table th {
+            background: #f0f4f2;
+            padding: 20px;
+            text-align: left;
+            color: #1b4d3e;
+            font-size: 18px;
+            border-bottom: 2px solid #e2ece8;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        /* Styling for the table data cells */
+        .premium-table td {
+            padding: 20px;
+            border-bottom: 1px solid #f5f5f5;
+            color: #555;
+            font-size: 16px;
+        }
+
+        /* Styling for cards that compare our site with others */
+        .comparison-card {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Placeholder box for screenshots of other websites */
+        .image-placeholder {
+            width: 100%;
+            height: 300px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f5f5f5;
+            border: 2px dashed #ddd;
+        }
+
+        /* Making sure the screenshot images fit nicely in their boxes */
+        .image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Styling for the links to the competitor sites */
+        .website-link {
+            color: #1b4d3e;
+            text-decoration: none;
+            font-weight: 500;
+            display: block;
+            margin-top: 15px;
+            padding: 8px 0;
+            border-top: 1px solid #eee;
+        }
+
+        .website-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Styling for the research summary box at the top */
+        .research-summary {
+            background: linear-gradient(135deg, #eef2f0 0%, #fff 100%);
+            padding: 40px;
+            border-radius: 25px;
+            margin-bottom: 40px;
+            border-left: 8px solid #1b4d3e;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Design for the mini difference cards */
+        .diff-card {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Main layout container -->
+    <div class="app-container">
+
+        <!-- Sidebar menu on the left -->
+        <header>
+            <div class="logo">
+                <h1>
+                    <!-- Our brand leaf icon -->
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.48 10-10 10Z">
+                        </path>
+                        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+                    </svg>
+                    EcoVerda
+                </h1>
+            </div>
+            <!-- Links for page navigation -->
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="research.html" class="active">Research</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <!-- Link to open the cart panel -->
+                    <li><a href="#" class="cart-trigger" onclick="toggleCart()">
+                            <span id="cart-count">0</span> 🛒 Cart
+                        </a></li>
+                </ul>
+            </nav>
+            <div style="margin-top:auto; font-size: 12px; color:#ccc;">&copy; 2026 EcoVerda</div>
+        </header>
+
+        <!-- Main content where the research info lives -->
+        <main>
+            <div class="page-content">
+                <h2 class="section-title">Research & Platform Benchmarking</h2>
+
+                <!-- Box summarizing what we researched -->
+                <div class="research-summary">
+                    <h4 style="color: #1b4d3e; margin-bottom: 15px; font-size: 24px;">The Research Goal</h4>
+                    <p style="color: #666; font-size: 18px; line-height: 1.6;">
+                        We have compared and analyzed the design of various websites. And we chose EarthHero as our main
+                        competitor.
+                        We have made various improvements in comparison to our competitor.
+                    </p>
+                </div>
+
+                <!-- A big table comparing our features with the competitor's -->
+                <table class="premium-table">
+                    <thead>
+                        <tr>
+                            <th>Web Component</th>
+                            <th>EcoVerda Solution</th>
+                            <th>EarthHero Approach</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Navigation Layout</strong></td>
+                            <td>We used a side navigation.</td>
+                            <td>They used a standard top navigation bar.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Product Interaction</strong></td>
+                            <td>Products open using slide-up overlays.</td>
+                            <td>Separate page for different products.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cart System</strong></td>
+                            <td>Used a cart drawer thats interactive.</td>
+                            <td>Full page Cart Checkout</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Content Strategy</strong></td>
+                            <td>Shopping and promoting Sustainability with blogs.</td>
+                            <td>Mostly Focused on products.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Section with side-by-side page comparisons -->
+                <h3 class="section-title" style="margin-top: 60px;">Page-by-Page Comparison</h3>
+
+                <!-- Home Page comparison cards -->
+                <h4 style="margin: 40px 0 20px 0; color: #1b4d3e; font-size: 22px;"> Home Page Comparison</h4>
+                <div style="display: flex; gap: 30px; margin-bottom: 60px; flex-wrap: wrap;">
+                    <!-- EcoVerda Home -->
+                    <div class="comparison-card">
+                        <div class="image-placeholder">
+                            <img src="../images/home.png" alt="EcoVerda Home Page">
+                        </div>
+                        <h4 style="margin: 15px 0; color: #1b4d3e;">Our Home Page</h4>
+                        <p style="color: #666; line-height: 1.5; font-size: 15px;">
+                            Side bar at the left side. Minimalistic design with a hint of green. Showcases the featured
+                            products.
+                        </p>
+                        <a href="../index.html" class="website-link">- View Our Home Page</a>
+                    </div>
+
+                    <!-- EarthHero Home -->
+                    <div class="comparison-card">
+                        <div class="image-placeholder">
+                            <img src="../images/r.png" alt="EarthHero Home Page">
+                        </div>
+                        <h4 style="margin: 15px 0; color: #1b4d3e;">EarthHero Home</h4>
+                        <p style="color: #666; line-height: 1.5; font-size: 15px;">
+                            Top navigation bar. Showcases a lot of offers and brands.
+                        </p>
+                        <a href="https://earthhero.com" target="_blank" class="website-link">- Visit EarthHero
+                            Website</a>
+                    </div>
+                </div>
+
+                <!-- Products Page comparison -->
+                <h4 style="margin: 40px 0 20px 0; color: #1b4d3e; font-size: 22px;"> Products Page Comparison</h4>
+                <div style="display: flex; gap: 30px; margin-bottom: 60px; flex-wrap: wrap;">
+                    <!-- EcoVerda Products -->
+                    <div class="comparison-card">
+                        <div class="image-placeholder">
+                            <img src="../images/products.png" alt="EcoVerda product Page">
+                        </div>
+                        <h4 style="margin: 15px 0; color: #1b4d3e;">Our Products Page</h4>
+                        <p style="color: #666; line-height: 1.5; font-size: 15px;">
+                            Instant "Add to Cart" feature added. Products are categorized accourding to the type of
+                            material.
+                        </p>
+                        <a href="products.html" class="website-link">- View Our Products Page</a>
+                    </div>
+
+                    <!-- EarthHero Products -->
+                    <div class="comparison-card">
+                        <div class="image-placeholder">
+                            <img src="../images/ref2.png" alt="EarthHero Product Page">
+                        </div>
+                        <h4 style="margin: 15px 0; color: #1b4d3e;">EarthHero Products</h4>
+                        <p style="color: #666; line-height: 1.5; font-size: 15px;">
+                            Grid layout with individual product discription page when clicked.
+                        </p>
+                        <a href="https://earthhero.com/collections/all" target="_blank" class="website-link">- View
+                            EarthHero Products</a>
+                    </div>
+                </div>
+
+                <!-- Blog/Content comparison -->
+                <h4 style="margin: 40px 0 20px 0; color: #1b4d3e; font-size: 22px;"> Blog/Content Comparison</h4>
+                <div style="display: flex; gap: 30px; margin-bottom: 60px; flex-wrap: wrap;">
+                    <!-- EcoVerda Blog -->
+                    <div class="comparison-card">
+                        <div class="image-placeholder">
+                            <img src="../images/Blog.png" alt="EcoVerda Blog Page">
+                        </div>
+                        <h4 style="margin: 15px 0; color: #1b4d3e;">Our Blog Page</h4>
+                        <p style="color: #666; line-height: 1.5; font-size: 15px;">
+                            Simple and minimalistic design and blog encouraging customers to a sustainable life.
+                        </p>
+                        <a href="blog.html" class="website-link">- View Our Blog Page</a>
+                    </div>
+
+                    <!-- EarthHero Content -->
+                    <div class="comparison-card">
+                        <div class="image-placeholder">
+                            <img src="../images/ref3.png" alt="EarthHero Blog Page">
+                        </div>
+                        <h4 style="margin: 15px 0; color: #1b4d3e;">EarthHero Blog</h4>
+                        <p style="color: #666; line-height: 1.5; font-size: 15px;">
+                            Has a seperrate section for all the blogs promoting products of different brands.
+                        </p>
+                        <a href="https://earthhero.com/blogs/blog/top-wellness-gifts-2026" target="_blank"
+                            class="website-link">→ View EarthHero Blog</a>
+                    </div>
+                </div>
+
+                <!-- About page comparison -->
+                <h4 style="margin: 40px 0 20px 0; color: #1b4d3e; font-size: 22px;"> About Us Comparison</h4>
+                <div style="display: flex; gap: 30px; margin-bottom: 60px; flex-wrap: wrap;">
+                    <!-- EcoVerda About -->
+                    <div class="comparison-card">
+                        <div class="image-placeholder">
+                            <img src="../images/AboutUS.png" alt="EcoVerda About Us Page">
+                        </div>
+                        <h4 style="margin: 15px 0; color: #1b4d3e;">Our About Page</h4>
+                        <p style="color: #666; line-height: 1.5; font-size: 15px;">
+                            Focuses on team transparency with individual portfolios showing whose behind the brand.
+                        </p>
+                        <a href="about.html" class="website-link">- View Our About Page</a>
+                    </div>
+
+                    <!-- EarthHero About -->
+                    <div class="comparison-card">
+                        <div class="image-placeholder">
+                            <img src="../images/ref4.png" alt="EarthHero About Us Page">
+                        </div>
+                        <h4 style="margin: 15px 0; color: #1b4d3e;">EarthHero About</h4>
+                        <p style="color: #666; line-height: 1.5; font-size: 15px;">
+                            Less focus on team transparency and more on the goals and ideas.
+                        </p>
+                        <a href="https://earthhero.com/pages/our-team" target="_blank" class="website-link">- View
+                            EarthHero About</a>
+                    </div>
+                </div>
+
+                <!-- Section on the core differences found in our research -->
+                <h3 class="section-title" style="margin-top: 60px;">Key Differences: EcoVerda vs EarthHero</h3>
+
+                <div style="display: flex; gap: 30px; margin: 40px 0; flex-wrap: wrap;">
+                    <div
+                        style="flex: 1; min-width: 250px; background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                        <h4 style="color:#1b4d3e; margin-bottom:12px; font-size: 18px;"> Product Strategy</h4>
+                        <p style="color:#666; line-height: 1.5; font-size: 15px;">
+                            <strong>EcoVerda:</strong> Promotes and creates handmade and sustainable Products.<br>
+                            <strong>EarthHero:</strong> Online platform marketing differents Brands.
+                        </p>
+                    </div>
+
+                    <div
+                        style="flex: 1; min-width: 250px; background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                        <h4 style="color:#1b4d3e; margin-bottom:12px; font-size: 18px;">User Experience</h4>
+                        <p style="color:#666; line-height: 1.5; font-size: 15px;">
+                            <strong>EcoVerda:</strong> side-navigation bar with app like dashboard.<br>
+                            <strong>EarthHero:</strong> Top navigation bar with traditional E-commerce vibe.
+                        </p>
+                    </div>
+
+                    <div
+                        style="flex: 1; min-width: 250px; background: white; border-radius: 15px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                        <h4 style="color:#1b4d3e; margin-bottom:12px; font-size: 18px;"> Transparency</h4>
+                        <p style="color:#666; line-height: 1.5; font-size: 15px;">
+                            <strong>EcoVerda:</strong> Shows team + research process<br>
+                            <strong>EarthHero:</strong> Focuses on brand mission + values
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Final summary boxes on our innovate focus -->
+                <div style="display: flex; gap: 30px; margin: 60px 0; flex-wrap: wrap;">
+                    <div
+                        style="flex: 1; min-width: 300px; background: linear-gradient(135deg, #eef2f0 0%, #fff 100%); border-radius: 20px; padding: 30px; border-left: 8px solid #1b4d3e;">
+                        <h4 style="color:#1b4d3e; margin-bottom:15px; font-size: 20px;">Our Advantage</h4>
+                        <p style="color:#666; line-height: 1.6; font-size: 16px;">
+                            While EarthHero is a well know sucessful onlineplatform, EcoVerda provides a clean and
+                            minimalistic dashboard with Sustainability driven goals.
+                        </p>
+                    </div>
+
+                    <div
+                        style="flex: 1; min-width: 300px; background: linear-gradient(135deg, #eef2f0 0%, #fff 100%); border-radius: 20px; padding: 30px; border-left: 8px solid #4CAF50;">
+                        <h4 style="color:#4CAF50; margin-bottom:15px; font-size: 20px;">Innovation Focus</h4>
+                        <p style="color:#666; line-height: 1.6; font-size: 16px;">
+                            We innovate in UX design with our Research page transparency and modern interface, while
+                            EarthHero focuses on marketplace scale and brand variety.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- The cart panel that opens when clicked -->
+    <div class="cart-overlay" onclick="toggleCart()"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button onclick="toggleCart()" class="cart-close-btn">&times;</button>
+        </div>
+        <!-- Placeholder for cart items to be added by JavaScript -->
+        <div id="cartItemsContainer"></div>
+        <div style="border-top:1px solid #eee; margin-top:32px; padding-top:24px;">
+            <div
+                style="display:flex; justify-content:space-between; font-weight:bold; font-size:18px; margin-bottom:24px;">
+                <span>Total:</span>
+                <span id="cartTotal">Rs. 0.00</span>
+            </div>
+            <button class="btn" style="width:100%; border:none; cursor:pointer;" onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Site footer with basic links -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="../index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">About Us</a>
+        </div>
+        <p style="margin-top: 20px; color: #888; font-size: 16px;">&copy; 2026 EcoVerda | Sustainable lifestyle for a
+            better tomorrow.</p>
+    </footer>
+
+    <!-- Loading the shared site script -->
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

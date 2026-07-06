@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Basic site setup like characters and screen size -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- This helps search engines find us and shows what the site is about -->
+    <meta name="description"
+        content="EcoVerda - Premium Sustainable Living. Earth-friendly products for a better tomorrow.">
+    <title>EcoVerda | Sustainable Living</title>
+
+    <!-- Linking our main CSS file to make everything look pretty -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- The main container that holds everything on the page -->
+    <div class="app-container">
+
+        <!-- This is our sidebar that stays on the left side -->
+        <header>
+            <div class="logo">
+                <h1>
+                    <!-- The little leaf icon in our logo -->
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.48 10-10 10Z">
+                        </path>
+                        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+                    </svg>
+                    EcoVerda
+                </h1>
+            </div>
+
+            <!-- Our menu links to navigate to other pages -->
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="pages/products.html">Products</a></li>
+                    <li><a href="pages/blog.html">Blog</a></li>
+                    <li><a href="pages/research.html">Research</a></li>
+                    <li><a href="pages/about.html">About Us</a></li>
+                    <!-- Special link to open our shopping cart -->
+                    <li><a href="javascript:void(0)" class="cart-trigger" onclick="toggleCart()"><span
+                                id="cart-count">0</span> 🛒 Cart</a></li>
+                </ul>
+            </nav>
+
+            <!-- Copyright info at the bottom of the sidebar -->
+            <div style="margin-top: auto; font-size: 14px; color: #aaa;">&copy; 2026 EcoVerda Team</div>
+        </header>
+
+        <!-- This is the main part of the page where our content goes -->
+        <main>
+            <!-- Big welcome section at the top -->
+            <section class="hero-split">
+                <div class="hero-text">
+                    <!-- Our main catchphrase -->
+                    <h2 style="font-size: 48px; line-height: 1.2; margin-bottom: 20px;">Sustainable <br> Living, <br><em
+                            style="font-style: italic;">Redefined.</em></h2>
+                    <p style="font-size: 18px; color: #777; margin-bottom: 30px; max-width: 500px; line-height: 1.6;">
+                        Join our mission to protect the planet with high-quality, ethically sourced, and zero-waste
+                        essentials.
+                    </p>
+                    <!-- Button to take people to the shop -->
+                    <a href="pages/products.html" class="btn">Start Shopping</a>
+                </div>
+                <!-- Big image on the right of the welcome section -->
+                <div class="hero-image">
+                    <img src="images/eco.jpg" alt="Eco lifestyle representation"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </section>
+
+            <div class="page-content">
+
+                <!-- Section explaining why people should choose us -->
+                <section style="margin-bottom: 80px;">
+                    <h3 class="section-title">Why EcoVerda?</h3>
+                    <div class="features-flex">
+                        <!-- First feature: Organic -->
+                        <div class="feature-item">
+                            <div
+                                style="width: 100%; height: 250px; overflow: hidden; border-radius: 20px; margin-bottom: 20px;">
+                                <img src="images/o.jpg" alt="Organic quality"
+                                    style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <h3 style="margin-bottom: 10px; font-size: 22px; color: var(--primary-color);">100% Organic
+                            </h3>
+                            <p style="color: #666; line-height: 1.6; font-size: 16px;">Every product we sell is
+                                certified organic and free from harmful chemicals.</p>
+                        </div>
+                        <!-- Second feature: Handmade -->
+                        <div class="feature-item">
+                            <div
+                                style="width: 100%; height: 250px; overflow: hidden; border-radius: 20px; margin-bottom: 20px;">
+                                <img src="images/handmade.jpg" alt="Handcrafted goods"
+                                    style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <h3 style="margin-bottom: 10px; font-size: 22px; color: var(--primary-color);">Eco-Handmade
+                            </h3>
+                            <p style="color: #666; line-height: 1.6; font-size: 16px;">Handcrafted by local artisans who
+                                share our vision for a greener future.</p>
+                        </div>
+                        <!-- Third feature: Zero Waste -->
+                        <div class="feature-item">
+                            <div
+                                style="width: 100%; height: 250px; overflow: hidden; border-radius: 20px; margin-bottom: 20px;">
+                                <img src="images/rapping.jpg" alt="Sustainable packaging"
+                                    style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <h3 style="margin-bottom: 10px; font-size: 22px; color: var(--primary-color);">Zero Waste
+                            </h3>
+                            <p style="color: #666; line-height: 1.6; font-size: 16px;">We use 100% biodegradable
+                                packaging to ensure no plastic enters our oceans.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Showing off a few top products -->
+                <section>
+                    <h3 class="section-title">Featured Collections</h3>
+                    <div class="product-flex">
+
+                        <!-- Product 1: Natural Scrubber -->
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <img src="images/brush.jpg" alt="Scrubber Brush">
+                                <!-- Hidden description that pops up when you hover -->
+                                <div class="product-description">
+                                    <p>Our signature natural scrubber. Perfect for long-lasting use without
+                                        microplastics.</p>
+                                </div>
+                                <!-- Button to add this item to the cart -->
+                                <button class="add-btn"
+                                    onclick="addToCart('Scrubber Brush', 330, 'images/brush.jpg', 'qty1_h')">+</button>
+                                <input type="hidden" id="qty1_h" value="1">
+                            </div>
+                            <h3>Natural Scrubber</h3>
+                            <p style="color:#d4a373; font-weight:600; font-size: 18px;">Rs. 330.00</p>
+                        </div>
+
+                        <!-- Product 2: Organic Soap -->
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <img src="images/soap.jpg" alt="Handmade Soap">
+                                <div class="product-description">
+                                    <p>Enriched with essential oils, our soaps are gentle on your skin and the earth.
+                                    </p>
+                                </div>
+                                <button class="add-btn"
+                                    onclick="addToCart('Organic Soap', 220, 'images/soap.jpg', 'qty2_h')">+</button>
+                                <input type="hidden" id="qty2_h" value="1">
+                            </div>
+                            <h3>Organic Soap</h3>
+                            <p style="color:#d4a373; font-weight:600; font-size: 18px;">Rs. 220.00</p>
+                        </div>
+
+                        <!-- Product 3: Bamboo Straws -->
+                        <div class="product-card">
+                            <div class="product-image-wrapper">
+                                <img src="images/Straw.jpg" alt="Bamboo Straws">
+                                <div class="product-description">
+                                    <p>Traditional bamboo straws that are durable, washable, and fully compostable.</p>
+                                </div>
+                                <button class="add-btn"
+                                    onclick="addToCart('Bamboo Straws', 800, 'images/Straw.jpg', 'qty3_h')">+</button>
+                                <input type="hidden" id="qty3_h" value="1">
+                            </div>
+                            <h3>Bamboo Straws</h3>
+                            <p style="color:#d4a373; font-weight:600; font-size: 18px;">Rs. 800.00</p>
+                        </div>
+
+                    </div>
+
+                    <!-- Button to go see everything in our shop -->
+                    <div style="text-align: center; margin-top: 40px;">
+                        <a href="pages/products.html" class="btn">View All Products</a>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- The cart and overlay that covers the page when cart is open -->
+    <div class="cart-overlay" onclick="toggleCart()"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <!-- Cart header with close button -->
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:30px;">
+            <h3 style="font-size:24px;">Your Cart</h3>
+            <button onclick="toggleCart()"
+                style="background:none; border:none; font-size:30px; cursor:pointer; color: #999;">&times;</button>
+        </div>
+        <!-- This is where our cart items will appear via JavaScript -->
+        <div id="cartItemsContainer">
+            <p style="text-align:center; color:#aaa;">Your cart is currently empty.</p>
+        </div>
+        <!-- Cart total and checkout button -->
+        <div style="border-top: 1px solid #eee; margin-top: 30px; padding-top: 20px;">
+            <div
+                style="display:flex; justify-content:space-between; font-weight:bold; font-size:20px; margin-bottom:20px;">
+                <span>Total:</span>
+                <span id="cartTotal">Rs. 0.00</span>
+            </div>
+            <button class="btn" style="width:100%; border:none; cursor:pointer;" onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Footer section with links and copyright -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="pages/products.html">Products</a>
+            <a href="pages/blog.html">Blog</a>
+            <a href="pages/about.html">About Us</a>
+        </div>
+        <p style="margin-top: 20px; color: #888; font-size: 16px;">&copy; 2026 EcoVerda | Sustainable lifestyle for a
+            better tomorrow.</p>
+    </footer>
+
+    <!-- Internal Script for Home Page Specifics -->
+    <script>
+        // This function shows a welcome message based on what time it is
+        function showWelcomeMessage() {
+            var title = document.querySelector('.hero-text h2');
+            if (!title) return;
+
+            let date = new Date();
+            let hour = date.getHours();
+            let greeting = "Welcome";
+
+            // Checking the time to pick the right greeting
+            if (hour < 12) {
+                greeting = "Good Morning";
+            } else if (hour < 18) {
+                greeting = "Good Afternoon";
+            } else {
+                greeting = "Good Evening";
+            }
+
+            // Creating the greeting text and adding it to the headline
+            var greetingDiv = document.createElement('div');
+            greetingDiv.style.fontSize = "16px";
+            greetingDiv.style.color = "#d4a373";
+            greetingDiv.style.textTransform = "uppercase";
+            greetingDiv.style.marginBottom = "10px";
+            greetingDiv.textContent = greeting;
+
+            title.insertBefore(greetingDiv, title.firstChild);
+        }
+
+        // Running the greeting function as soon as the page loads
+        window.addEventListener('load', showWelcomeMessage);
+    </script>
+    <!-- Importing our main JavaScript logic -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
+
+

@@ -1,0 +1,413 @@
+/* Setting up our main colors and layout sizes so we can reuse them easily */
+:root {
+    --primary-color: #1b4d3e;
+    /* Our main dark green brand color */
+    --primary-light: #2d7a62;
+    /* A lighter green for accents */
+    --accent-color: #d4a373;
+    /* A warm sandy color for highlights */
+
+    --bg-color: #f8faf9;
+    /* Slightly off-white background */
+    --bg-white: #ffffff;
+    /* Pure white for cards and sections */
+    --text-color: #1a1a1a;
+    /* Almost black text for readability */
+    --text-muted: #666;
+    /* Gray text for secondary info */
+
+    --sidebar-width: 280px;
+    /* Standard width for our left navigation */
+    --radius: 20px;
+    /* Consistent rounded corners everywhere */
+}
+
+/* Resetting default browser margins and paddings so everything looks consistent */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Making sure the site fills the whole screen height */
+html,
+body {
+    height: 100%;
+}
+
+/* Basic body settings like fonts and background color */
+body {
+    font-family: system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, oxygen, ubuntu, cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* Picking a more elegant font for all our big headlines */
+h1,
+h2,
+h3,
+h4 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Stripping away the default blue underline from links */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* The main layout that uses Flexbox to put the sidebar and content side-by-side */
+.app-container {
+    display: flex;
+    min-height: 100%;
+}
+
+/* Styling our fixed sidebar on the left */
+header {
+    width: var(--sidebar-width);
+    background: #ffffff;
+    border-right: 1px solid #eee;
+    position: fixed;
+    height: 100%;
+    padding: 48px 32px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+}
+
+/* Designing our brand logo in the sidebar */
+.logo h1 {
+    font-size: 29px;
+    color: var(--primary-color);
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* List styling for our navigation menu items */
+nav ul {
+    list-style: none;
+    margin-top: 16px;
+}
+
+nav li {
+    margin-bottom: 15px;
+}
+
+/* Making our menu links look nice and interactive */
+nav a {
+    color: #666;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    border-radius: 15px;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+/* Changing colors when a link is hovered or active */
+nav a:hover,
+nav a.active {
+    background: #eef5f2;
+    color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+/* Highlighting the cart button in the sidebar */
+.cart-trigger {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    margin-top: 32px;
+    justify-content: center;
+}
+
+/* Pushing the main content to the right so it doesn't hide under the sidebar */
+main {
+    flex: 1;
+    margin-left: var(--sidebar-width);
+}
+
+/* Center-aligning our page content with some breathing room */
+.page-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 64px 5%;
+}
+
+/* Styling our big hero section on the landing page */
+.hero-split {
+    display: flex;
+    height: 810px;
+    background: var(--bg-white);
+}
+
+/* The text-only part of our hero section */
+.hero-text {
+    flex: 1;
+    padding: 80px 96px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(135deg, #f0f4f2 0%, #ffffff 100%);
+}
+
+/* Big hero headline settings */
+.hero-text h2 {
+    font-size: 72px;
+    line-height: 1.1;
+    color: var(--primary-color);
+    margin-bottom: 32px;
+}
+
+/* Making the italic part of the headline a different color */
+.hero-text h2 em {
+    color: var(--accent-color);
+    font-style: italic;
+}
+
+/* The image part of our hero section */
+.hero-image {
+    flex: 1;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* General styling for section titles */
+.section-title {
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 64px;
+    color: var(--primary-color);
+}
+
+/* Flexbox setup for product and feature grids */
+.product-flex,
+.features-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+
+/* Designing individual product and feature cards */
+.product-card,
+.feature-item {
+    background: white;
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    flex: 1;
+    min-width: 320px;
+    max-width: 400px;
+    transition: 0.3s;
+    border: 1px solid #f0f0f0;
+}
+
+/* Lift-up effect when hovering over a card */
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Wrapping product images to keep them uniform */
+.product-image-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 25px;
+    background: #fdfdfd;
+    aspect-ratio: 1;
+}
+
+/* Product image hover effect */
+.product-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.product-card:hover img {
+    transform: scale(1.1);
+}
+
+/* The overlay description that appears on product hover */
+.product-description {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 0.4s;
+    color: #1a1a1a;
+}
+
+/* Slide-up effect for description */
+.product-card:hover .product-description {
+    top: 0;
+}
+
+/* Floating round plus button for adding to cart */
+.add-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: white;
+    color: var(--primary-color);
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    z-index: 20;
+}
+
+.add-btn:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Our standard pill-shaped button style */
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #143d30;
+    transform: translateY(-3px);
+}
+
+/* Clear icon for closing modal windows */
+.cart-close-btn {
+    background: none;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    color: #999;
+}
+
+/* Hidden slide-out drawer for our shopping cart */
+.cart-drawer {
+    position: fixed;
+    top: 0;
+    right: -450px;
+    width: 450px;
+    height: 100%;
+    background: white;
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.1);
+    z-index: 2000;
+    padding: 48px;
+    transition: right 0.4s;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Class to show the cart drawer */
+.cart-drawer.open {
+    right: 0;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Semi-transparent overlay to dim the background when cart is open */
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1500;
+    display: none;
+}
+
+/* Making the overlay visible */
+.cart-overlay.active {
+    display: block;
+}
+
+/* Site-wide footer with centered content */
+.footer {
+    background: white;
+    padding: 64px 32px;
+    text-align: center;
+    border-top: 1px solid #eee;
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #666;
+    margin: 0 15px;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Adjustments for smaller screens and tablets */
+@media (max-width: 1024px) {
+
+    /* Stack sidebar on top of content for mobile */
+    .app-container {
+        flex-direction: column;
+    }
+
+    header {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 24px;
+    }
+
+    /* Removing the sidebar offset on mobile */
+    main {
+        margin-left: 0;
+    }
+
+    /* Making the cart take up the full width on small screens */
+    .cart-drawer {
+        width: 100%;
+        right: -100%;
+    }
+
+    .footer {
+        margin-left: 0;
+        width: 100%;
+    }
+}
