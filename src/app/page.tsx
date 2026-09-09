@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { prisma } from "@/lib/prisma";
 import NewsletterSection from "@/components/NewsletterSection";
+import { placeholders } from "@/lib/placeholders";
 
 export default async function HomePage() {
   const products = await prisma.product.findMany({
@@ -56,6 +57,8 @@ export default async function HomePage() {
             height={800}
             className="w-full h-full object-cover"
             priority
+            blurDataURL={placeholders.eco}
+            placeholder="blur"
           />
         </div>
       </section>
@@ -94,6 +97,8 @@ export default async function HomePage() {
                   width={400}
                   height={300}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  blurDataURL={placeholders[f.img.split('/').pop()?.split('.')[0] || '']}
+                  placeholder="blur"
                 />
               </div>
               <h3 className="font-serif text-xl text-[#1b4d3e] dark:text-[#4caf7a] mb-2">
