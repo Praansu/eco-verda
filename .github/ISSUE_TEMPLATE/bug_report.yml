@@ -1,0 +1,34 @@
+name: Bug Report
+description: Report a bug in EcoVerda
+title: "[BUG] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug!
+  - type: input
+    id: version
+    attributes:
+      label: Version/Commit
+      placeholder: "e.g., main branch, commit abc123"
+    required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      placeholder: "Cart not persisting / Search not working / Stripe error..."
+    required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options:
+        - Next.js frontend
+        - Prisma/Database
+        - Stripe payments
+        - Authentication
+        - Search/Filter
+        - Docker
+        - Other
+    required: true
