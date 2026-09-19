@@ -1,60 +1,23 @@
 # EcoVerda — Full-Stack E-Commerce Platform
 
-A full-stack e-commerce platform for eco-friendly and sustainable products. Built with modern web technologies to demonstrate production-ready engineering.
+A full-stack storefront for eco-friendly products. Next.js App Router + TypeScript, Prisma + SQLite, credentials auth via NextAuth — cart persistence, orders, reviews, newsletter and contact handling.
 
 ## Tech Stack
 
-| Layer | Technology | Why It Was Chosen |
-|-------|-----------|-------------------|
-| **Frontend** | Next.js 15 (App Router) + TypeScript | Industry-standard React framework with SSR/SSG |
-| **Styling** | Tailwind CSS v4 | Utility-first, responsive design |
-| **Database** | SQLite (via Prisma ORM) | Zero-config local dev; swap to PostgreSQL for prod |
-| **Auth** | NextAuth.js (Auth.js) | Battle-tested auth with JWT sessions |
-| **Payments** | Stripe (ready to integrate) | Payment infrastructure for production |
-| **Deploy** | Vercel (frontend) + Supabase (DB) | Free tiers, blazing fast CDN |
+| Layer | Technology |
+|-------|-----------|
+| **Framework** | Next.js 16 (App Router) + TypeScript, React 19 |
+| **Styling** | Tailwind CSS v4 |
+| **Database** | SQLite via Prisma ORM (swap to PostgreSQL for prod) |
+| **Auth** | NextAuth v5, credentials provider, bcryptjs password hashing, Prisma adapter |
+| **Payments** | Stripe SDK present (`src/lib/stripe.ts`) but **not wired into checkout** — see known issues |
+| **Notifications** | react-hot-toast |
 
-## Features
+## How it's built
 
-### 🛍️ Store
-- Product catalog with category filtering and search
-- Product detail pages with reviews
-- Featured collections on homepage
+Mutations live in **server actions** (`src/lib/actions.ts`): `registerUser`, `addToCart`, `updateCartItem`, `removeCartItem`, `subscribeNewsletter`, `submitContact`. Only two API route handlers exist: `/api/register` and `/api/auth/*` (NextAuth). Everything else the UI does goes through server actions.
 
-### 🛒 Cart & Checkout
-- Add to cart with quantity controls
-- Server-side cart persistence (per user)
-- Checkout flow with address capture
-- Order confirmation and history
-
-### 👤 User System
-- Registration with password hashing (bcryptjs)
-- Login/logout with JWT sessions
-- Protected routes and API endpoints
-- Persistent sessions across devices
-
-### 🎨 Design
-- Dark mode toggle (saves preference)
-- Fully responsive (mobile-first)
-- Accessible UI with semantic HTML
-- Toast notifications for user feedback
-
-### 📬 Marketing
-- Newsletter subscription
-- Contact form with database persistence
-- Testimonials section
-
-## Database Schema
-
-```
-User ──┐
-       ├── CartItem ── Product
-       ├── Order ── OrderItem ── Product
-       └── Review ── Product
-
-Category ── Product
-Newsletter (standalone)
-Contact (standalone)
-```
+Schema (`prisma/schema.prisma`): `User` → `CartItem`/`Order`/`Review`, `Order` → `OrderItem`, `Category` → `Product`, plus standalone `Newsletter` and `Contact`. One review per user per product (unique constraint), one cart row per user per product.
 
 ## Getting Started
 
@@ -64,35 +27,24 @@ cd eco-verda
 npm install
 
 # Set up environment
-cp .env.example .env
+cp .env.example .env        # fill in DATABASE_URL + NEXTAUTH_SECRET
 
 # Initialize database
 npx prisma generate
 npx prisma db push
-npx ts-node prisma/seed.ts
+npx ts-node prisma/seed.ts  # categories, products, admin user (below)
 
-# Start development
 npm run dev
 ```
 
 Visit [http://localhost:3000](http://localhost:3000)
 
-### Demo Credentials
+### Seed login (local dev only)
+
 - **Email:** admin@ecoverda.com
 - **Password:** admin123
 
-## API Routes
-
-| Route | Method | Description |
-|-------|--------|-------------|
-| `/api/products` | GET | List products (search, category, featured filters) |
-| `/api/products/[id]` | GET | Single product with reviews |
-| `/api/cart` | GET | Get user's cart |
-| `/api/orders` | GET/POST | List/create orders |
-| `/api/newsletter` | POST | Subscribe email |
-| `/api/contact` | POST | Submit contact form |
-| `/api/register` | POST | Create account |
-| `/api/auth/*` | - | NextAuth.js auth routes |
+Seeded by `prisma/seed.ts` into your local SQLite file. Change or remove it before any real deployment.
 
 ## Project Structure
 
@@ -100,47 +52,47 @@ Visit [http://localhost:3000](http://localhost:3000)
 eco-verda/
 ├── prisma/
 │   ├── schema.prisma    # Database schema
-│   └── seed.ts          # Seed data
+│   └── seed.ts          # Categories, products, admin user
 ├── src/
 │   ├── app/
-│   │   ├── page.tsx              # Homepage
-│   │   ├── products/             # Product listing + detail
-│   │   ├── cart/                 # Shopping cart
-│   │   ├── checkout/             # Checkout flow
+│   │   ├── page.tsx              # Homepage (featured, testimonials)
+│   │   ├── products/             # Listing with category filter + detail + reviews
+│   │   ├── cart/                 # Cart page
+│   │   ├── checkout/             # Checkout form (address + phone)
 │   │   ├── orders/               # Order history + detail
-│   │   ├── auth/                 # Login + register
-│   │   └── api/                  # REST API routes
+│   │   ├── auth/                 # Login + register pages
+│   │   └── api/                  # register + auth/[...nextauth] ONLY
 │   ├── components/
-│   │   ├── Header.tsx            # Nav + dark mode + cart drawer
-│   │   ├── Footer.tsx            # Site footer
-│   │   ├── ProductCard.tsx       # Product card component
+│   │   ├── Header.tsx / Footer.tsx / ProductCard.tsx
 │   │   ├── CartDrawer.tsx        # Slide-out cart
 │   │   ├── NewsletterSection.tsx # Newsletter signup
 │   │   └── Providers.tsx         # Session + toast providers
 │   └── lib/
-│       ├── prisma.ts             # Prisma client
+│       ├── actions.ts            # All mutations (server actions)
 │       ├── auth.ts               # NextAuth config
-│       ├── stripe.ts             # Stripe client
-│       ├── utils.ts              # Helpers
-│       └── actions.ts            # Server actions
+│       ├── stripe.ts             # Stripe client — currently unused
+│       ├── prisma.ts / utils.ts / placeholders.ts
 └── public/images/               # Product images
 ```
 
-## Deploy
+## Known issues (honest list, in fix order)
 
-Deploy to Vercel:
+1. **Three client components call API routes that don't exist.** `CheckoutForm` POSTs to `/api/orders`, `CartDrawer` GETs `/api/cart`, `NewsletterSection` POSTs to `/api/newsletter` — none of these route handlers are built, so those calls 404. The fix is to point them at the server actions in `lib/actions.ts` that already do the same jobs. Cart page, orders flow and newsletter signup are broken until then.
+2. **Stripe isn't connected.** The SDK and client exist; nothing imports them. Checkout currently creates an order record directly. Either wire Stripe Checkout or remove the dependency.
+3. **No `.env.example` shipped previously** — added now. `DATABASE_URL` and `NEXTAUTH_SECRET` are required to boot.
+
+## Deploy
 
 ```bash
 npm i -g vercel
 vercel
 ```
 
-For production, swap SQLite to PostgreSQL (Supabase free tier) and add Stripe keys.
+For production: swap SQLite to PostgreSQL (Supabase free tier works), set real env vars, remove the seed admin, and resolve the known issues above first.
 
 ## What I Learned
 
-- **Full-stack auth is hard.** NextAuth.js with credentials + JWT requires careful session handling. Prisma adapter made the DB integration smooth but understanding the callback flow took time.
-- **Server actions vs API routes.** Next.js server actions are great for mutations; API routes are better for fetching data from client components. Mixing both requires clear patterns.
-- **Dark mode in 2026.** CSS variables + Tailwind's `dark:` variant class strategy. Persisting to localStorage and reading on mount to avoid flash.
-- **SQLite for dev, PostgreSQL for prod.** Prisma makes swapping trivial, but the schema differences (enums, arrays) need thought early.
-- **Cart logic is surprisingly complex.** Optimistic updates, quantity limits, stock validation, clearing on checkout — every edge case matters.
+- **Full-stack auth is hard.** NextAuth v5 credentials + JWT with the Prisma adapter — the callback and session flow took real time to understand, more than the login form itself.
+- **Server actions vs API routes.** Actions carry all the mutations here, which is clean — but the leftover `fetch("/api/...")` calls in three components show what happens when you migrate halfway. Finish the migration; don't straddle both.
+- **Cart logic is surprisingly complex.** Optimistic updates, quantity limits, stock checks, clearing on checkout — every edge case matters, and half of them only appear when a second tab is open.
+- **SQLite for dev, PostgreSQL for prod.** Prisma makes the swap look trivial, but enums, defaults and case sensitivity differ — decide early, not at deploy time.
