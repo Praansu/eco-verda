@@ -1,0 +1,93 @@
+version: 2
+updates:
+  # npm dependencies
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "04:00"
+      timezone: "Asia/Kathmandu"
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+      - "npm"
+    commit-message:
+      prefix: "deps(npm)"
+    groups:
+      nextjs:
+        patterns:
+          - "next*"
+          - "react*"
+          - "@types/react*"
+          - "eslint-config-next*"
+        update-types:
+          - "minor"
+          - "patch"
+      auth-db:
+        patterns:
+          - "next-auth*"
+          - "@auth/prisma-adapter*"
+          - "prisma*"
+          - "@prisma/client*"
+          - "bcryptjs*"
+        update-types:
+          - "minor"
+          - "patch"
+      payments:
+        patterns:
+          - "stripe*"
+          - "@stripe/stripe-js*"
+        update-types:
+          - "minor"
+          - "patch"
+      ui-libraries:
+        patterns:
+          - "lucide-react*"
+          - "clsx*"
+          - "tailwind-merge*"
+          - "tailwindcss*"
+          - "@tailwindcss/postcss*"
+          - "react-hot-toast*"
+          - "zod*"
+        update-types:
+          - "minor"
+          - "patch"
+      dev-tools:
+        patterns:
+          - "typescript*"
+          - "eslint*"
+          - "ts-node*"
+        update-types:
+          - "minor"
+          - "patch"
+
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "04:00"
+      timezone: "Asia/Kathmandu"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "github-actions"
+    commit-message:
+      prefix: "deps(actions)"
+
+  # Docker base images
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "04:00"
+      timezone: "Asia/Kathmandu"
+    open-pull-requests-limit: 3
+    labels:
+      - "dependencies"
+      - "docker"
+    commit-message:
+      prefix: "deps(docker)"
